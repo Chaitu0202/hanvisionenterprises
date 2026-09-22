@@ -2,6 +2,7 @@ import React from 'react';
 import { useRouter } from '../context/RouterContext';
 import { Breadcrumbs } from '../components/common/Breadcrumbs';
 import { useApp } from '../context/AppContext';
+import { SafeImage } from '../components/common/SafeImage';
 import {
   ArrowUpRight,
   UserCheck,
@@ -12,7 +13,10 @@ import {
   Phone,
   Mail,
   CheckCircle2,
-  ExternalLink
+  ExternalLink,
+  Factory,
+  Truck,
+  Compass
 } from 'lucide-react';
 import { PACKAGING_ASSETS } from '../data/companyData';
 
@@ -162,6 +166,76 @@ export const AboutPage: React.FC = () => {
               <span>View Facility on Google Maps</span>
               <ExternalLink className="w-3.5 h-3.5 text-[#F28B35]" />
             </a>
+          </div>
+        </div>
+      </div>
+
+      {/* Manufacturing Facility Showcase */}
+      <div className="bg-[#172228] border border-white/10 rounded-3xl p-6 sm:p-10 space-y-8">
+        <div className="flex flex-col md:flex-row md:items-end justify-between gap-4">
+          <div className="space-y-2">
+            <span className="text-xs font-bold uppercase tracking-wider text-[#F28B35]">
+              Operations & Plant Location
+            </span>
+            <h2 className="text-2xl sm:text-3xl font-extrabold text-[#F4F6F5] tracking-tight">
+              THE ANANDAPURAM PACKAGING WORKS
+            </h2>
+            <p className="text-xs sm:text-sm text-[#A6B2B7] max-w-2xl leading-relaxed">
+              Situated in the growing industrial corridor of Visakhapatnam District, our facility is engineered for responsive turnarounds, paper reel handling, and rapid dispatch across coastal Andhra.
+            </p>
+          </div>
+
+          <div className="flex items-center gap-3">
+            <div className="px-3.5 py-1.5 rounded-lg bg-[#0B1114] border border-white/10 text-xs font-bold text-[#F28B35] flex items-center gap-2">
+              <MapPin className="w-3.5 h-3.5" />
+              <span>Boni Road, Anandapuram</span>
+            </div>
+          </div>
+        </div>
+
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
+          <div className="rounded-2xl overflow-hidden border border-white/10 bg-[#0B1114]">
+            <SafeImage
+              src={PACKAGING_ASSETS.factory}
+              alt="Hanvision Enterprises Corrugation Line Facility"
+              className="w-full h-auto aspect-video object-cover"
+            />
+            <div className="p-4 bg-[#202D34] border-t border-white/10 flex items-center justify-between text-xs text-[#A6B2B7]">
+              <span className="font-semibold text-[#F4F6F5]">Heated Corrugator Line</span>
+              <span>Visakhapatnam Plant</span>
+            </div>
+          </div>
+
+          <div className="space-y-4">
+            <div className="p-4 rounded-xl bg-[#202D34] border border-white/5 space-y-1.5">
+              <div className="flex items-center gap-2 text-xs font-bold text-[#F4F6F5]">
+                <Truck className="w-4 h-4 text-[#F28B35]" />
+                <span>Regional Dispatch Hub</span>
+              </div>
+              <p className="text-xs text-[#A6B2B7] leading-relaxed">
+                Direct highway connectivity enabling swift bulk delivery to Vizag Port, Autonagar Industrial Area, Duvvada SEZ, Gambheeram, and surrounding commercial clusters.
+              </p>
+            </div>
+
+            <div className="p-4 rounded-xl bg-[#202D34] border border-white/5 space-y-1.5">
+              <div className="flex items-center gap-2 text-xs font-bold text-[#F4F6F5]">
+                <Factory className="w-4 h-4 text-[#F28B35]" />
+                <span>Direct Mill Paper Sourcing</span>
+              </div>
+              <p className="text-xs text-[#A6B2B7] leading-relaxed">
+                We maintain direct supply links with certified paper mills to source high-tensile virgin and recycled kraft reels with verified Burst Factor ratings.
+              </p>
+            </div>
+
+            <div className="p-4 rounded-xl bg-[#202D34] border border-white/5 space-y-1.5">
+              <div className="flex items-center gap-2 text-xs font-bold text-[#F4F6F5]">
+                <Compass className="w-4 h-4 text-[#F28B35]" />
+                <span>Transparent Quality Control</span>
+              </div>
+              <p className="text-xs text-[#A6B2B7] leading-relaxed">
+                Every carton batch undergoes dimensional verification, creasing check, and grammage validation to eliminate transit collapse before leaving our facility.
+              </p>
+            </div>
           </div>
         </div>
       </div>

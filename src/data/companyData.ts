@@ -20,12 +20,14 @@ export const COMPANY_INFO: CompanySettings = {
   verifiedSinceNote: 'Manufacturer of corrugated carton boxes and custom industrial packaging.'
 };
 
-// Generated studio assets for packaging visualization
+// Generated studio assets for packaging visualization (served from public/images/)
 export const PACKAGING_ASSETS = {
-  hero: '/src/assets/images/hero_corrugated_boxes_1790071869294.jpg',
-  fluting: '/src/assets/images/corrugated_fluting_macro_1790071883108.jpg',
-  customBoxes: '/src/assets/images/custom_carton_boxes_1790071901045.jpg',
-  diecut: '/src/assets/images/custom_carton_boxes_1790071901045.jpg',
+  hero: '/images/hero-boxes.jpg',
+  fluting: '/images/fluting-macro.jpg',
+  customBoxes: '/images/custom-cartons.jpg',
+  factory: '/images/factory-plant.jpg',
+  diecut: '/images/diecut-variety.jpg',
+  agro: '/images/agro-boxes.jpg',
 };
 
 export const PRODUCTS_DATA: Product[] = [
@@ -72,11 +74,11 @@ export const PRODUCTS_DATA: Product[] = [
     category: '5-Ply Corrugated Boxes',
     shortDescription: 'Double-wall corrugated cartons designed for medium-to-heavy industrial products, export shipping, and stacking.',
     fullDescription: 'Constructed with double-wall corrugated boards featuring two fluted mediums interleaved between three linerboards. 5-Ply boxes deliver high compression strength, edge crush resistance, and stacking rigidity for transit through challenging supply chains.',
-    heroImage: PACKAGING_ASSETS.fluting,
+    heroImage: PACKAGING_ASSETS.customBoxes,
     galleryImages: [
+      PACKAGING_ASSETS.customBoxes,
       PACKAGING_ASSETS.fluting,
-      PACKAGING_ASSETS.hero,
-      PACKAGING_ASSETS.customBoxes
+      PACKAGING_ASSETS.hero
     ],
     suggestedApplications: [
       'Industrial machinery parts and hardware',
@@ -108,11 +110,11 @@ export const PRODUCTS_DATA: Product[] = [
     category: '7-Ply Corrugated Boxes',
     shortDescription: 'Heavy-duty triple-wall corrugated containers engineered for heavy equipment, bulk industrial cargo, and rigorous logistics.',
     fullDescription: 'Our 7-Ply triple-wall corrugated containers represent the pinnacle of paperboard packaging strength. Engineered to safely transport heavy engineering components, chemicals, auto parts, and bulk raw materials, providing an efficient alternative to traditional wooden crates.',
-    heroImage: PACKAGING_ASSETS.fluting,
+    heroImage: PACKAGING_ASSETS.factory,
     galleryImages: [
+      PACKAGING_ASSETS.factory,
       PACKAGING_ASSETS.fluting,
-      PACKAGING_ASSETS.hero,
-      PACKAGING_ASSETS.customBoxes
+      PACKAGING_ASSETS.hero
     ],
     suggestedApplications: [
       'Heavy automobile and engineering components',
@@ -144,10 +146,10 @@ export const PRODUCTS_DATA: Product[] = [
     category: 'Customized Packaging Boxes',
     shortDescription: 'Bespoke die-cut cartons, custom dimensions, branded prints, and tailored structural inserts built around your specific product.',
     fullDescription: 'Every product has unique geometry and shipping demands. Hanvision Enterprises works with your exact product dimensions, fragility profile, and brand requirements to engineer custom die-cut boxes, display cartons, self-erecting mailers, and custom internal fittings.',
-    heroImage: PACKAGING_ASSETS.customBoxes,
+    heroImage: PACKAGING_ASSETS.diecut,
     galleryImages: [
+      PACKAGING_ASSETS.diecut,
       PACKAGING_ASSETS.customBoxes,
-      PACKAGING_ASSETS.hero,
       PACKAGING_ASSETS.fluting
     ],
     suggestedApplications: [
@@ -180,10 +182,10 @@ export const PRODUCTS_DATA: Product[] = [
     category: 'Food Packaging Boxes',
     shortDescription: 'Clean, food-safe paperboard cartons and master shippers for agricultural produce, processed food, and bakery items.',
     fullDescription: 'Engineered specifically for the food, agriculture, and FMCG sectors. Designed to protect perishable goods, fresh harvest, bakery products, and processed food packets with adequate ventilation and structural rigidity under cold-chain or humid transport conditions.',
-    heroImage: PACKAGING_ASSETS.customBoxes,
+    heroImage: PACKAGING_ASSETS.agro,
     galleryImages: [
+      PACKAGING_ASSETS.agro,
       PACKAGING_ASSETS.customBoxes,
-      PACKAGING_ASSETS.hero,
       PACKAGING_ASSETS.fluting
     ],
     suggestedApplications: [
@@ -216,10 +218,10 @@ export const PRODUCTS_DATA: Product[] = [
     category: 'Mono Cartons',
     shortDescription: 'Refined single-sheet paperboard cartons for primary packaging, retail shelves, pharmaceuticals, and cosmetics.',
     fullDescription: 'Mono cartons provide sleek, high-definition printed primary packaging for retail merchandise. Constructed from folding box boards (FBB), duplex boards, or kraft board, these cartons combine lightweight form with exceptional print clarity for consumer-facing shelves.',
-    heroImage: PACKAGING_ASSETS.customBoxes,
+    heroImage: PACKAGING_ASSETS.diecut,
     galleryImages: [
+      PACKAGING_ASSETS.diecut,
       PACKAGING_ASSETS.customBoxes,
-      PACKAGING_ASSETS.hero,
       PACKAGING_ASSETS.fluting
     ],
     suggestedApplications: [
@@ -255,8 +257,8 @@ export const PRODUCTS_DATA: Product[] = [
     heroImage: PACKAGING_ASSETS.hero,
     galleryImages: [
       PACKAGING_ASSETS.hero,
-      PACKAGING_ASSETS.fluting,
-      PACKAGING_ASSETS.customBoxes
+      PACKAGING_ASSETS.customBoxes,
+      PACKAGING_ASSETS.fluting
     ],
     suggestedApplications: [
       'General commercial warehousing and storage',
@@ -437,7 +439,25 @@ export const GALLERY_ITEMS: GalleryItem[] = [
   },
   {
     id: 'gal-2',
-    title: 'Corrugated Fluting Architecture',
+    title: 'Modern Corrugation Plant Line',
+    category: 'Factory & Process',
+    imageUrl: PACKAGING_ASSETS.factory,
+    altText: 'High-speed industrial corrugator machinery line',
+    caption: 'Automated corrugation machinery processing kraft paper reels into corrugated boards.',
+    isPlaceholderDemo: true
+  },
+  {
+    id: 'gal-3',
+    title: 'Custom Die-cut Carton Formats',
+    category: 'Custom Boxes',
+    imageUrl: PACKAGING_ASSETS.diecut,
+    altText: 'Custom die-cut packaging boxes and mailer cartons',
+    caption: 'Tailored die-cut packaging formats manufactured to specific client product geometries.',
+    isPlaceholderDemo: true
+  },
+  {
+    id: 'gal-4',
+    title: 'Fluting Architecture & Structural Rigidity',
     category: 'Factory & Process',
     imageUrl: PACKAGING_ASSETS.fluting,
     altText: 'Macro photography of 3-ply and 5-ply corrugated fluted medium',
@@ -445,39 +465,21 @@ export const GALLERY_ITEMS: GalleryItem[] = [
     isPlaceholderDemo: true
   },
   {
-    id: 'gal-3',
-    title: 'Custom Die-cut Carton Formats',
-    category: 'Custom Boxes',
-    imageUrl: PACKAGING_ASSETS.customBoxes,
-    altText: 'Custom die-cut packaging boxes and mono cartons',
-    caption: 'Tailored die-cut packaging formats manufactured to specific client product geometries.',
-    isPlaceholderDemo: true
-  },
-  {
-    id: 'gal-4',
-    title: '3-Ply Single Wall Corrugated Box',
-    category: 'Products',
-    imageUrl: PACKAGING_ASSETS.hero,
-    altText: '3-ply lightweight corrugated shipping carton',
-    caption: 'Economical 3-ply corrugated boxes ideal for lightweight shipping and e-commerce parcels.',
-    isPlaceholderDemo: true
-  },
-  {
     id: 'gal-5',
     title: '5-Ply Heavy Industrial Master Carton',
     category: 'Packaging',
-    imageUrl: PACKAGING_ASSETS.fluting,
+    imageUrl: PACKAGING_ASSETS.customBoxes,
     altText: '5-ply heavy duty master corrugated carton',
     caption: 'High-rigidity double-wall 5-ply cartons engineered for bulk cargo and freight.',
     isPlaceholderDemo: true
   },
   {
     id: 'gal-6',
-    title: 'Mono Carton & Food Packaging Sample',
+    title: 'Perforated Food & Agro Packaging',
     category: 'Custom Boxes',
-    imageUrl: PACKAGING_ASSETS.customBoxes,
-    altText: 'Mono carton and food grade packaging box samples',
-    caption: 'Precision printed mono cartons and food-safe box formats for commercial goods.',
+    imageUrl: PACKAGING_ASSETS.agro,
+    altText: 'Ventilated agro produce and food carton boxes',
+    caption: 'Clean ventilated corrugated cartons designed for agricultural exports and food products.',
     isPlaceholderDemo: true
   }
 ];
@@ -632,44 +634,44 @@ export const GALLERY_DATA = [
   },
   {
     id: 'gal-3',
+    title: 'Modern High-Speed Corrugation Line',
+    category: 'Manufacturing & Material',
+    imageUrl: PACKAGING_ASSETS.factory,
+    caption: 'Industrial automated corrugator line processing heavy kraft paper reels into rigid corrugated sheets.'
+  },
+  {
+    id: 'gal-4',
     title: 'Precision Arched Fluting Cross-Section',
     category: 'Manufacturing & Material',
     imageUrl: PACKAGING_ASSETS.fluting,
     caption: 'Macro cross-section detailing bonded wave fluting medium providing compression resilience and transit cushioning.'
   },
   {
-    id: 'gal-4',
+    id: 'gal-5',
     title: 'Die-Cut Ventilation Produce Containers',
     category: 'Food & Retail',
-    imageUrl: PACKAGING_ASSETS.customBoxes,
+    imageUrl: PACKAGING_ASSETS.agro,
     caption: 'Die-cut produce trays with precision air holes designed for fruits, vegetables, and agro commodities transit.'
   },
   {
-    id: 'gal-5',
+    id: 'gal-6',
     title: 'Custom Interlocking Die-Cut Box Prototype',
     category: 'Custom Boxes',
     imageUrl: PACKAGING_ASSETS.diecut,
     caption: 'Self-locking mailer box format engineered without requiring adhesive tape for quick warehouse assembly.'
   },
   {
-    id: 'gal-6',
+    id: 'gal-7',
     title: '7-Ply Triple Wall Heavy Cargo Crating',
     category: 'Corrugated Cartons',
-    imageUrl: PACKAGING_ASSETS.hero,
+    imageUrl: PACKAGING_ASSETS.factory,
     caption: 'Extreme strength triple-wall corrugated carton designed as a lightweight alternative to heavy wooden crates.'
-  },
-  {
-    id: 'gal-7',
-    title: 'Flexographic 2-Color Industrial Printing',
-    category: 'Manufacturing & Material',
-    imageUrl: PACKAGING_ASSETS.diecut,
-    caption: 'High-contrast water-based ink flexo printing displaying handling icons, warning symbols, and brand identifiers.'
   },
   {
     id: 'gal-8',
     title: 'Sleek Mono Carton Retail Packaging',
     category: 'Food & Retail',
-    imageUrl: PACKAGING_ASSETS.customBoxes,
+    imageUrl: PACKAGING_ASSETS.diecut,
     caption: 'Folding box board (FBB) mono cartons with tuck tops for confectionery, health products, and consumer goods.'
   }
 ];

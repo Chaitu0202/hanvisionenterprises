@@ -2,6 +2,7 @@ import React from 'react';
 import { useRouter } from '../context/RouterContext';
 import { Breadcrumbs } from '../components/common/Breadcrumbs';
 import { MANUFACTURING_STEPS, PACKAGING_ASSETS } from '../data/companyData';
+import { SafeImage } from '../components/common/SafeImage';
 import {
   ArrowUpRight,
   Factory,
@@ -106,36 +107,58 @@ export const ManufacturingPage: React.FC = () => {
       </div>
 
       {/* Facility Image and Fluting Showcase */}
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
-        <div className="rounded-2xl overflow-hidden border border-white/10 bg-[#172228]">
-          <img
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div className="rounded-2xl overflow-hidden border border-white/10 bg-[#172228] flex flex-col">
+          <SafeImage
+            src={PACKAGING_ASSETS.factory}
+            alt="Corrugation Plant Line & Paper Reel Feed"
+            className="w-full h-auto aspect-video object-cover"
+          />
+          <div className="p-5 space-y-2 flex-1 flex flex-col justify-between">
+            <div>
+              <span className="text-xs font-bold text-[#F28B35] uppercase">
+                Corrugator Line & Reel Handling
+              </span>
+              <p className="text-xs text-[#A6B2B7] leading-relaxed mt-1.5">
+                Precision heated corrugation rollers transform kraft paper reels into single, double, or triple-wall boards under controlled steam moisture.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div className="rounded-2xl overflow-hidden border border-white/10 bg-[#172228] flex flex-col">
+          <SafeImage
             src={PACKAGING_ASSETS.fluting}
             alt="Corrugation Fluting Architecture"
             className="w-full h-auto aspect-video object-cover"
           />
-          <div className="p-5 space-y-2">
-            <span className="text-xs font-bold text-[#F28B35] uppercase">
-              Cushioning Flute Architecture
-            </span>
-            <p className="text-xs text-[#A6B2B7] leading-relaxed">
-              The internal arched corrugations create structural trusses that resist top-to-bottom compression while absorbing dynamic transit shocks during truck, rail, or ocean cargo movements.
-            </p>
+          <div className="p-5 space-y-2 flex-1 flex flex-col justify-between">
+            <div>
+              <span className="text-xs font-bold text-[#F28B35] uppercase">
+                Cushioning Flute Architecture
+              </span>
+              <p className="text-xs text-[#A6B2B7] leading-relaxed mt-1.5">
+                The internal arched corrugations create structural trusses that resist top-to-bottom compression while absorbing dynamic transit shocks.
+              </p>
+            </div>
           </div>
         </div>
 
-        <div className="rounded-2xl overflow-hidden border border-white/10 bg-[#172228]">
-          <img
+        <div className="rounded-2xl overflow-hidden border border-white/10 bg-[#172228] flex flex-col">
+          <SafeImage
             src={PACKAGING_ASSETS.diecut}
             alt="Custom Die Cutting and Slitting"
             className="w-full h-auto aspect-video object-cover"
           />
-          <div className="p-5 space-y-2">
-            <span className="text-xs font-bold text-[#F28B35] uppercase">
-              Precision Creasing & Slotting
-            </span>
-            <p className="text-xs text-[#A6B2B7] leading-relaxed">
-              Proper creasing prevents liner cracking when flaps are closed and sealed, guaranteeing maximum stacking load retention on warehouse pallets.
-            </p>
+          <div className="p-5 space-y-2 flex-1 flex flex-col justify-between">
+            <div>
+              <span className="text-xs font-bold text-[#F28B35] uppercase">
+                Precision Creasing & Die-Cutting
+              </span>
+              <p className="text-xs text-[#A6B2B7] leading-relaxed mt-1.5">
+                Accurate rotary die-cutting and clean creasing ensure smooth flap folding, strong corners, and maximum stacking load retention on pallets.
+              </p>
+            </div>
           </div>
         </div>
       </div>

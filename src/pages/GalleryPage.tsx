@@ -4,6 +4,7 @@ import { Breadcrumbs } from '../components/common/Breadcrumbs';
 import { GALLERY_DATA } from '../data/companyData';
 import { Maximize2, X, ArrowUpRight, Layers, ShieldCheck } from 'lucide-react';
 import { useApp } from '../context/AppContext';
+import { SafeImage } from '../components/common/SafeImage';
 
 export const GalleryPage: React.FC = () => {
   const { navigate } = useRouter();
@@ -68,7 +69,7 @@ export const GalleryPage: React.FC = () => {
             className="group bg-[#172228] border border-white/10 hover:border-[#F28B35]/50 rounded-2xl overflow-hidden cursor-pointer transition-all duration-300 hover:shadow-xl hover:-translate-y-1 flex flex-col justify-between"
           >
             <div className="relative aspect-[4/3] overflow-hidden bg-[#0B1114]">
-              <img
+              <SafeImage
                 src={item.imageUrl}
                 alt={item.title}
                 className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500 opacity-90 group-hover:opacity-100"
@@ -110,7 +111,7 @@ export const GalleryPage: React.FC = () => {
             onClick={(e) => e.stopPropagation()}
           >
             <div className="relative aspect-video bg-[#0B1114]">
-              <img
+              <SafeImage
                 src={selectedImage.imageUrl}
                 alt={selectedImage.title}
                 className="w-full h-full object-cover"

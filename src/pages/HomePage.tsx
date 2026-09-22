@@ -1,7 +1,9 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useRouter } from '../context/RouterContext';
 import { useApp } from '../context/AppContext';
 import { ProductCard } from '../components/products/ProductCard';
+import { SafeImage } from '../components/common/SafeImage';
+import { BoxSpecVisualizer } from '../components/home/BoxSpecVisualizer';
 import {
   ArrowRight,
   ArrowUpRight,
@@ -25,6 +27,38 @@ import { WhatsAppButton } from '../components/common/WhatsAppButton';
 export const HomePage: React.FC = () => {
   const { navigate } = useRouter();
   const { products, companySettings } = useApp();
+  const [heroShowcaseIdx, setHeroShowcaseIdx] = useState(0);
+
+  const heroShowcaseImages = [
+    {
+      label: 'Shipping Cartons',
+      title: '3-Ply & 5-Ply Shipping Cartons',
+      location: 'Universal Kraft Packaging',
+      desc: 'Custom manufactured kraft corrugated cartons built to client weight, fluting, and dimensional specifications.',
+      src: PACKAGING_ASSETS.hero,
+    },
+    {
+      label: 'Corrugator Plant',
+      title: 'Industrial Corrugator Line',
+      location: 'Anandapuram Plant',
+      desc: 'Heavy kraft paper reel feeding, steam heating, fluting, and automated slitting under controlled conditions.',
+      src: PACKAGING_ASSETS.factory,
+    },
+    {
+      label: 'Agro & Food Boxes',
+      title: 'Ventilated Produce Containers',
+      location: 'Perishable Exports',
+      desc: 'Perforated 5-ply cartons designed for fruit, agricultural goods, and cold storage seafood shipments.',
+      src: PACKAGING_ASSETS.agro,
+    },
+    {
+      label: 'Die-Cut Cartons',
+      title: 'Precision Die-Cut Cartons',
+      location: 'Custom Engineering',
+      desc: 'Self-locking mailers and precision inserts fabricated without requiring manual adhesive taping.',
+      src: PACKAGING_ASSETS.diecut,
+    },
+  ];
 
   return (
     <div className="space-y-24 pb-20">
@@ -93,22 +127,44 @@ export const HomePage: React.FC = () => {
                 <div className="absolute -inset-2 rounded-3xl bg-gradient-to-tr from-[#F28B35]/20 to-transparent blur-xl opacity-60" />
 
                 <div className="relative rounded-2xl overflow-hidden border border-white/10 bg-[#172228] shadow-2xl">
-                  <img
-                    src={PACKAGING_ASSETS.hero}
-                    alt="Hanvision Enterprises Corrugated Box Packaging"
-                    className="w-full h-auto object-cover aspect-[4/3] rounded-t-2xl"
-                  />
+                  {/* Interactive Visual Category Selector */}
+                  <div className="p-2.5 bg-[#0B1114] border-b border-white/10 flex items-center gap-1.5 overflow-x-auto scrollbar-none">
+                    {heroShowcaseImages.map((img, idx) => (
+                      <button
+                        key={img.label}
+                        onClick={() => setHeroShowcaseIdx(idx)}
+                        className={`px-3 py-1.5 rounded-lg text-[11px] font-bold whitespace-nowrap transition-all ${
+                          heroShowcaseIdx === idx
+                            ? 'bg-[#F28B35] text-[#0B1114]'
+                            : 'bg-[#172228] text-[#A6B2B7] hover:text-[#F4F6F5]'
+                        }`}
+                      >
+                        {img.label}
+                      </button>
+                    ))}
+                  </div>
+
+                  <div className="relative aspect-[4/3] w-full bg-[#0B1114]">
+                    <SafeImage
+                      src={heroShowcaseImages[heroShowcaseIdx].src}
+                      alt={heroShowcaseImages[heroShowcaseIdx].title}
+                      className="w-full h-full object-cover"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-[#172228] via-transparent to-transparent opacity-50" />
+                  </div>
 
                   {/* Caption & Metadata Pill */}
-                  <div className="p-5 bg-[#172228] border-t border-white/5 space-y-2">
+                  <div className="p-5 bg-[#172228] border-t border-white/5 space-y-1.5">
                     <div className="flex items-center justify-between text-xs">
                       <span className="text-[#F28B35] font-semibold uppercase tracking-wider">
-                        Production Showcase
+                        {heroShowcaseImages[heroShowcaseIdx].title}
                       </span>
-                      <span className="text-[#A6B2B7]">Visakhapatnam Facility</span>
+                      <span className="text-[#A6B2B7] text-[11px]">
+                        {heroShowcaseImages[heroShowcaseIdx].location}
+                      </span>
                     </div>
-                    <p className="text-xs text-[#F4F6F5] leading-relaxed">
-                      Custom manufactured kraft corrugated cartons built to client weight, fluting, and dimensional specifications.
+                    <p className="text-xs text-[#A6B2B7] leading-relaxed">
+                      {heroShowcaseImages[heroShowcaseIdx].desc}
                     </p>
                   </div>
                 </div>
@@ -234,7 +290,7 @@ export const HomePage: React.FC = () => {
             {/* Right Visual showing structural fluting */}
             <div className="lg:col-span-6">
               <div className="relative rounded-2xl overflow-hidden border border-white/10 bg-[#0B1114]">
-                <img
+                <SafeImage
                   src={PACKAGING_ASSETS.fluting}
                   alt="Corrugated Fluting Structure Architecture"
                   className="w-full h-auto object-cover aspect-[4/3]"
@@ -252,6 +308,13 @@ export const HomePage: React.FC = () => {
             </div>
           </div>
         </div>
+      </section>
+
+      {/* ================================================== */}
+      {/* 3.5. INTERACTIVE BOX SPEC VISUALIZER               */}
+      {/* ================================================== */}
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <BoxSpecVisualizer />
       </section>
 
       {/* ================================================== */}

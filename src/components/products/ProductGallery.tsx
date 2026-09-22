@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Maximize2, Shield } from 'lucide-react';
+import { SafeImage } from '../common/SafeImage';
 
 interface ProductGalleryProps {
   images: string[];
@@ -16,7 +17,7 @@ export const ProductGallery: React.FC<ProductGalleryProps> = ({ images, productN
     <div className="space-y-4">
       {/* Main Large Display Frame */}
       <div className="relative aspect-[4/3] rounded-2xl overflow-hidden bg-[#172228] border border-white/10 group">
-        <img
+        <SafeImage
           src={currentImage}
           alt={`${productName} sample view ${selectedIndex + 1}`}
           className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500"
@@ -54,7 +55,7 @@ export const ProductGallery: React.FC<ProductGalleryProps> = ({ images, productN
                   : 'border-white/10 hover:border-white/30 opacity-70 hover:opacity-100'
               }`}
             >
-              <img
+              <SafeImage
                 src={img}
                 alt={`${productName} thumbnail ${idx + 1}`}
                 className="w-full h-full object-cover object-center"
@@ -71,7 +72,7 @@ export const ProductGallery: React.FC<ProductGalleryProps> = ({ images, productN
           onClick={() => setLightboxOpen(false)}
         >
           <div className="relative max-w-4xl max-h-[90vh] overflow-hidden rounded-2xl border border-white/10">
-            <img
+            <SafeImage
               src={currentImage}
               alt={productName}
               className="w-full h-auto max-h-[85vh] object-contain"

@@ -3,6 +3,7 @@ import { Product } from '../../types';
 import { useRouter } from '../../context/RouterContext';
 import { useApp } from '../../context/AppContext';
 import { ArrowUpRight, Check, Layers } from 'lucide-react';
+import { SafeImage } from '../common/SafeImage';
 
 interface ProductCardProps {
   product: Product;
@@ -25,7 +26,7 @@ export const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
     >
       {/* Product Image Frame */}
       <div className="relative aspect-video w-full bg-[#0B1114] overflow-hidden">
-        <img
+        <SafeImage
           src={product.heroImage}
           alt={product.name}
           className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500 opacity-90 group-hover:opacity-100"
