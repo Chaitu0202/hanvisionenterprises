@@ -1,0 +1,51 @@
+@import "tailwindcss";
+
+@layer base {
+  html {
+    font-family: 'Plus Jakarta Sans', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background-color: #0B1114;
+    color: #F4F6F5;
+    overflow-x: hidden;
+  }
+}
+
+/* Custom industrial pattern & utility classes */
+.bg-industrial-grid {
+  background-size: 32px 32px;
+  background-image: 
+    linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+}
+
+.bg-corrugated-flute {
+  background: repeating-linear-gradient(
+    90deg,
+    rgba(242, 139, 53, 0.04),
+    rgba(242, 139, 53, 0.04) 4px,
+    transparent 4px,
+    transparent 12px
+  );
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #0B1114;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #202D34;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #F28B35;
+}
